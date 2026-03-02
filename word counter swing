@@ -1,0 +1,18 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+public class WordCounter extends JFrame {
+    JTextArea ta = new JTextArea();
+    JButton btn = new JButton("Count");
+
+    WordCounter() {
+        btn.setBounds(100, 200, 100, 30);
+        ta.setBounds(20, 20, 250, 150);
+        btn.addActionListener(e -> {
+            String text = ta.getText();
+            String words[] = text.trim().split("\\s+");
+            JOptionPane.showMessageDialog(this, "Words: " + words.length + "\nChars: " + text.length());
+        });
+        add(ta); add(btn);        setSize(300, 300); setLayout(null); setVisible(true);
+    }    public static void main(String[] args) { new WordCounter(); }
+}
